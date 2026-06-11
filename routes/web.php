@@ -5,6 +5,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GenericViewsController;
+use App\Http\Controllers\EditingController;
 
 use App\Models\Excuse;
 
@@ -26,6 +27,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [AdminController::class, 'panel'])->name('admin.panel');
     Route::get('/edit/{model}/{id}', [AdminController::class, 'edit'])->name('admin.edit');
+
+    Route::post('/save', [EditingController::class, 'save'])->name('editing.save');
 });
 
 Route::get('/genericlist/{model}/{page}', [GenericViewsController::class, 'list'])->name('generic.list');

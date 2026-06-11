@@ -16,30 +16,26 @@ async function showList(model, page=1, columns, showColumns) {
     if (listDiv && pageSpan && totalPagesSpan && showingP) {
         showingP.innerText = showing[1];
         const list = await getList(model, page);
-        let html = '';
-        let info;
         if (list && list.data) {
+            let html = '';
             for (const object of list.data) {
 
-                html = `<div class='mt-2'><a href=detail/${model}/${object.id}>`;
+                let info;
 
+                html += `<div class='mt-2'><a href=detail/${model}/${object.id}>`;
+                
                 for (const [i, column] of columns.entries()) {
 
                     if (column.includes('.')) {
-                        info = `
-                            ${
-                                object[
-                                    column.slice(
-                                    0, column.indexOf('.')
-                                )]
-                                [
-                                    column.slice(column.indexOf('.') + 1
-                                )]
-                            }`;
-                    } else {
-                        info = `${object[column]}`;
-                    }
+                        const parts = column.split('.');
+                        const relation = parts[0];
+                        const field = parts[1];
 
+                        info = object[relation]?.[field] ?? 'N/A';
+                    } else {
+                        info = object[column] ?? 'N/A';
+                    }
+    
                     html += `<p>${showColumns[i]}: ${info}</p>`
                 }
                 html += '</a></div>';

@@ -9,22 +9,23 @@
     <div class='m-3'>
         </main>
             <div>
-                <p class='text-center mb-5'>Model: {{ $model }}</p>
-                <form action='/save/{{ strtolower($model) }}/{{ $object->id }}' method='POST'>
+                <p class='text-center mb-5'>Model: {{ old("model", $model) }}</p>
+                <form action='/save' method='POST'>
                     @csrf
-                    <input type='hidden' name='model' value='{{ $model }}'></input>
-                    <input type='hidden' name='id' value='{{ $object.id }}'></input>
+                    <input type='hidden' name='model' value='{{ old("model", $model) }}'></input>
+                    <input type='hidden' name='id' value='{{ old("id", $object->id) }}'></input>
                     @switch($model)
                         @case('Excuse')
                             <label>
                                 <p>Excuse:</p>
-                                <input type='text' name='text' value='{{ $object->text }}'>
+                                <input type='text' name='text' value='{{ old("text", $object->text) }}'>
                             </label>
                             <label>
                                 <p>Risk:</p>
+                                <input type='hidden' name='risk_tag' value='{{ old("risk_tag"), $object->risk->tag }}'>
                                 <select>
                                     <option id='riskDropdown' data-model="risk" name='risk_id' value='{{ $object->risk_id }}'>
-                                        {{ $object->risk->tag }}
+                                        {{ old("risk_tag", $object->risk->tag) }}
                                     </option>
                                 </select>
                             </label>
@@ -60,9 +61,10 @@
                             </script>
                             <label>
                                 <p>Category:</p>
+                                <input type='hidden' name='category_name' value='{{ old("category_name"), $object->category->name }}'>
                                 <select>
-                                    <option id='categoryDropdown' data-model="category" name='category_id' value='{{ $object->category_id }}'>
-                                        {{ $object->category->name }}
+                                    <option id='categoryDropdown' data-model="category" name='category_id' value='{{ old("category_id", $object->category_id) }}'>
+                                        {{ old("category_name", $object->category->name) }}
                                     </option>
                                 </select>
                             </label>
@@ -98,24 +100,39 @@
                             </script>
                             <label>
                                 <p>Believability Rate:</p> 
-                                <input type='text' name='believability_rate' value='{{ $object->believability_rate }}'>
+                                <input type='text' name='believability_rate' value='{{ old("believability_rate", $object->believability_rate) }}'>
                             </label>
-                            <p>Chaos Score: {{ $object->chaosScore }} - System-defined property as: Risk Score + (100 - Believ. Rate)</p>
+                            <input type='hidden' name='chaosScore' value='{{ old("chaosScore", $object->chaosScore) }}'>
+                            <p>Chaos Score: {{ old('chaosScore', $object->chaosScore) }} - System-defined property as: Risk Score + (100 - Believ. Rate)</p>
                             @break
                         @case('Risk')
-                            <p>Risk: {{ $object->tag }}</p>
-                            <p>Severity Score: {{ $object->severity_score }}</p>
+                            <label>
+                                <p>Risk tag:</p>
+                                <input type='text' name='tag' value='{{ old("tag". $object->tag) }}'>
+                            </label>
+                            <label>
+                                <p>Severity Score:</p> 
+                                <input type='integer' name='severity_score' value='{{ old("severity_score", $object->severity_score) }}'>
+                            </label>
                             @break
                         @case('Category')
-                            <p>Name: {{ $object->name }}</p>
+                            <label>
+                                <p>Name:</p> 
+                                <input type='text' name='name' value='{{ old("name", $object->name) }}'>
+                            </label>
                             @break
                         @default
-                            <p>Sorry, model '{{ $model }}' doesn't correspond to any of our models
+                            <p>Sorry, model '{{ old("model", $model) }}' doesn't correspond to any of our models
                     @endswitch
-                    <p>ID: {{ $object->id }}</p>
+                    <ul class='text-red-500'>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    <p>ID: {{ old("id", $object->id) }}</p>
                     <button type='submit' class='border rounded py-1 px-4 mt-2 font-bold bg-blue-600 hover:bg-blue-800 hover:cursor-pointer'>Save</button>
                 </form>
-                <a href='/delete/{{ strtolower($model) }}/{{ $object->id }}'><button class='border rounded py-1 px-4 mt-2 font-bold bg-red-600 hover:bg-red-800 hover:cursor-pointer'>Delete</button></a>
+                <a href='/delete/{{ strtolower(old("model", $model)) }}/{{ old("id", $object->id) }}'><button class='border rounded py-1 px-4 mt-2 font-bold bg-red-600 hover:bg-red-800 hover:cursor-pointer'>Delete</button></a>
             </div>
         </main>
     </div>

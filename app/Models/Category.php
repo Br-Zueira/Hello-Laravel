@@ -11,4 +11,8 @@ class Category extends Model
     }
 
     public static $searchableField = 'name';
+
+    public static $validationRules = [
+        'name' => 'required|string|min:3|max:255'
+    ];
 }
