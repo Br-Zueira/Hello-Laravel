@@ -48,13 +48,14 @@ async function showExcuse() {
     reloadExcuseBtn.innerText = "Get another excuse";
 }
 
-function initCopyExcuse () {
+async function initCopyExcuse () {
     const copyExcuseBtn = document.getElementById("copyExcuse");
     if (copyExcuseBtn) {
         copyExcuseBtn.addEventListener('click', async () => {
             const excuse = document.getElementById("excuse");
             if (excuse) {
                 await navigator.clipboard.writeText(excuse.innerText);
+                await alert("Copied excuse to clipboard");
             }
         })
     }

@@ -1,3 +1,4 @@
+@import url('https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css');
 @import 'tailwindcss';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -6,4 +7,92 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* ==========================================================================
+   TOM SELECT TERMINAL THEME BLUEPRINT
+   ========================================================================== */
+
+/* 1. THE MAIN CONTROLLER BOX (The input field before you click it) */
+.ts-wrapper .ts-control {
+    background-color: #18181b !important;   /* Pitch black background */
+    border: 1px solid #22c55e !important;   /* Clean emerald border */
+    color: #22c55e !important;              /* Emerald text */
+    font-family: monospace !important;       /* Clean terminal font layout */
+    padding: 8px 12px !important;           /* Space inside the input */
+    border-radius: 4px !important;          /* Slight tech-radius styling */
+    box-shadow: none !important;            /* Strip away modern shadow glows */
+}
+
+/* 2. THE FOCUS ACTIVE STATE (When typing/navigating inside the field) */
+.ts-wrapper.focus .ts-control {
+    border-color: #22c55e !important;       /* Bright emerald border flash */
+    box-shadow: none !important; /* Matrix-like outer glow */
+}
+
+/* 3. THE TEXT CURSOR FIELD (Where your query string is typed) */
+.ts-control input {
+    color: #22c55e !important;              /* Colors the letters you type */
+    font-family: monospace !important;
+    background: transparent !important;
+}
+
+/* 4. CHOSEN ELEMENT CHIPS (Only applicable if you use multi-select tags) */
+.ts-control .item {
+    background-color: #18181b !important;   /* Dark forest green background block */
+    color: #22c55e !important;              /* Emerald text for the selected item */
+    border: 1px solid #22c55e !important;   /* Subdued inner boundary lines */
+    border-radius: 2px !important;
+    padding: 2px 6px !important;
+}
+
+/* 5. THE PANEL CONTAINER TRAY (The floating dropdown window) */
+.ts-dropdown {
+    background-color: #18181b !important;   /* Pure black background grid */
+    border: 1px solid #22c55e !important;   /* Frame border matches control box */
+    border-radius: 4px !important;
+    margin-top: 4px !important;             /* Tiny separation air gap */
+    z-index: 1000 !important;               /* Force overlay on top of standard forms */
+}
+
+.ts-dropdown .no-results {
+    background-color: #18181b !important;
+    color: #22c55e !important;
+}
+
+/* 6. MAX SCROLL LIMITS (For managing huge database payloads) */
+.ts-dropdown-content {
+    max-height: 240px !important;           /* Keeps list to roughly 6 or 7 rows max */
+    font-family: monospace !important;
+}
+
+/* 7. RECORES INSIDE THE TRAY (The un-highlighted selection rows) */
+.ts-dropdown .option {
+    color: #22c55e !important;              /* Darker green text for passive states */
+    padding: 8px 12px !important;           /* Match control box padding for symmetry */
+    cursor: pointer;
+}
+
+/* 8. ACTIVE SELECTION ROW (When hovering with mouse or arrow keys) */
+.ts-dropdown .option.active {
+    background-color: #27272a !important;   /* Highlights target container row */
+    color: #22c55e !important;              /* Snaps text color back to bright matrix green */
+}
+
+/* 9. LOADING SPINNER (Shows up during asynchronous backend round-trips) */
+.ts-dropdown .spinner {
+    padding: 8px 12px !important;
+    color: #f59e0b !important;              /* Warning amber color code while loading */
+    font-family: monospace !important;
+}
+
+.ts-dropdown-content::-webkit-scrollbar {
+    width: 6px;
+}
+.ts-dropdown-content::-webkit-scrollbar-track {
+    background: #18181b;
+}
+.ts-dropdown-content::-webkit-scrollbar-thumb {
+    background: #18181b;
+    border-radius: 3px;
 }

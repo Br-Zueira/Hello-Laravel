@@ -42,7 +42,7 @@ class Excuse extends Model
         'text' => 'required|string|min:5|max:255',
         'believability_rate' => 'required|integer|between:0,100',
 
-        'risk_id' => 'required|integer|exists:risk.id',
-        'categories_id' => 'required|integer|exists:categories.id',
+        'risk_id' => 'required|integer|exists:risks,id',
+        'category_id' => 'required|integer|exists:categories,id',
     ];
 }

@@ -25,7 +25,7 @@
                 @endswitch
                 <p>ID: {{ $object->id }}</p>
                 @auth
-                    <a href='/edit/{{ strtolower($model) }}/{{ $object->id }}'><button class='border rounded py-1 px-4 mt-2 font-bold bg-amber-400 hover:bg-amber-600 hover:cursor-pointer'>Edit</button></a>
+                    <a href='/edit/{{ strtolower($model) }}/{{ $object->id }}'><button class='border rounded my-1 py-1 px-2 bg-zinc-900 hover:bg-zinc-800 hover:cursor-pointer'>Edit</button></a>
                 @endauth
             </div>
         </main>
