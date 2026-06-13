@@ -15,42 +15,15 @@ class AdminController extends Controller
         return view('adminpanel');
     }
 
-    public function makeCategory(Request $request)
-    {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255'
-        ]);
-        Category::create($validated);
-        return true;
-    }
-
-    public function makeRisk(Request $request)
-    {
-        $validated = $request->validate([
-            'tag' => 'required|string|max:255',
-            'severity_score' => 'required|integer|min:1|max:10'
-        ]);
-        Risk::create($validated);
-        return true;
-    }
-
-    public function makeExcuse(Request $request)
-    {
-        $validated = $request->validate([
-            'text' => 'required|string|max:255',
-            'believability_rate' => 'required|integer|min:0|max:100',
-            'category_id' => 'required|integer',
-            'risk_id' => 'required|integer'
-        ]);
-        Excuse::Create($validated);
-        return true;
-    }
-
     public function edit($model, $id) 
     {
         $model = ucfirst(strtolower($model));
         $modelName = 'App\\Models\\' . $model;
     
+        if (!class_exists($modelName)) {
+            abort(404, "Sorry, model" . $model . "doesn't exist");
+        }
+
         $query = $modelName::query();
 
         if (method_exists($modelName, 'getModelRelations')) {
@@ -60,5 +33,17 @@ class AdminController extends Controller
         $object = $query->findOrFail($id);
 
         return view('adminedit', compact('object', 'model'));
+    }
+
+    public function create($model)
+    {
+        $model = ucfirst(strtolower($model));
+        $modelName = 'App\\Models\\' . $model;
+
+        if (!class_exists($modelName)) {
+            abort(404, "Sorry, model" . $model . "doesn't exist");
+        }
+
+        return view('admincreate', compact('model'));
     }
 }

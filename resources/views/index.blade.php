@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('body')
-    <div class="p-0.5 m-5 rounded-3xl bg-green-800 w-1/2 mx-auto content-center text-center">
+    <div class="p-0.5 m-5 rounded-3xl bg-green-800 w-11/12 md:w-1/2 mx-auto content-center text-center">
         <div class="p-3 space-y-5 w-full mx-auto h-full rounded-3xl content-center text-center bg-zinc-800">
             <h1 class="font-extrabold text-4xl">Excuser 99</h1>
             <p id="category">Category:</p>

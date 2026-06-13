@@ -10,7 +10,7 @@
 
         <div>
             <label class="block text-xs font-bold tracking-wider mb-1">Email Address</label>
-            <input type="email" name="email" value="{{ old('email') }}" required autofocus class="w-full border bg-zinc-800 autofill:[box-shadow:0_0_0_1000px_#27272a_inset] border-green-500 focus:outline-none rounded-xl p-3">
+            <input type="email" name="email" value="{{ old('email') }}" required autofocus class="w-full border bg-zinc-800 border-green-500 rounded-xl p-3">
             @error('email')
                 <p class="text-red-500 text-xs mt-1 font-semibold">{{ $message }}</p>
             @enderror
@@ -18,7 +18,7 @@
 
         <div>
             <label class="block text-xs font-bold tracking-wider mb-1">Password</label>
-            <input type="password" name="password" required class="w-full border bg-zinc-800 autofill:[box-shadow:0_0_0_1000px_#27272a_inset] border-green-500 focus:outline-none rounded-xl p-3">
+            <input type="password" name="password" required class="w-full border bg-zinc-800 border-green-500 rounded-xl p-3">
         </div>
 
         <button type="submit" class="w-full py-3 mt-4 bg-zinc-800 hover:bg-zinc-700 border border-green-500 font-bold rounded-xl tracking-wide hover:cursor-pointer">

@@ -9,7 +9,7 @@ class GenericViewsController extends Controller
     function list($model, $page = 1) 
     {
         $modelName = 'App\\Models\\' . ucfirst(strtolower($model));
-        $perPage = 10;
+        $perPage = 5;
 
         if (!class_exists($modelName)) {
             abort(404, "Model [{$model}] not found.");
