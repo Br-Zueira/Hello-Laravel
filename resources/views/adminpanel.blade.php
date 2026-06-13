@@ -20,6 +20,7 @@
                 </button>
             </a>
             <form action='/logout' method='POST'>
+                @csrf
                  <button class='my-10 border rounded p-1 bg-zinc-900 hover:bg-zinc-800 hover:cursor-pointer w-full'>
                     Logout
                 </button>   
