@@ -10,7 +10,7 @@ Hello-laravel is a personal project by Br-zueira (me) meant to be a practical wa
 
 ### Tools:
 * Backend: Laravel (PHP) - The coolest stuff, everything 100% made specifically for this project: Routes, Data managment, Logic, etc
-* Fronend: Tailwind CSS and TomSelect library - The part that is cool until we need to centralize a <div> or make dynamic page interaction
+* Fronend: Tailwind CSS and TomSelect library - The part that is only cool until we need to centralize a <div> or make dynamic page interaction
 
 ### Note
 As you can see, this project was made just to fun and learn and is totally memey and unhinged, so don't expect nothing great, and I hope you have fun with this project just like I had doing it.
