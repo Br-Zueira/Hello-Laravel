@@ -3,7 +3,7 @@ A humorous-intended website about giving excuses to diverse situations, such as 
 
 ## Preview
 **Landing page**
-![Excuser 99 Generator Interface](screenshot.png)
+![Excuser 99 Generator Interface](assets/screenshot.png)
 
 ## Demo website
 **Click here**:
