@@ -13,8 +13,7 @@ COPY . .
 RUN composer install --no-dev --optimize-autoloader
 RUN npm ci && npm run build
 
-CMD touch /var/www/html/database/database.sqlite && \
-    php artisan migrate --seed --force && \
+CMD php artisan migrate --seed --force && \
     php artisan config:cache && \
     php artisan route:cache && \
     php artisan view:cache && \
