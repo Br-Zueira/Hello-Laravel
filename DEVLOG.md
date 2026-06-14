@@ -60,12 +60,22 @@ A really productive day.
 * **Documentation:** README and DEVLOG. I made README more detailed and added the landing page screenshot to it. 
 * **Commiting:** I pushed some commits from Saturday that were missing.
 * **Favicons:** I added the Bash logo favicons to the project.
+* **Deploying:** As I write this devlog section, I'm trying to deploy this project to create the demo
 
 **README in Hello-Laravel GitHub page**
 ![Screenshot of the README at GitHub Hello-Laravel page](assets/7.png)
 
 ## GitHub History
-* `389bf18` (HEAD -> main, origin/main) Improved README.md to fit the Stardance README standard
+
+* -> The upload of this updated DEVLOG (Won't be logged here because to log it here, I'd have to update the DEVLOG, which would create a new commit, which I'd have to log here...)
+
+* `941b1ec` (HEAD -> main) Updated PHP requirement to 8.4
+* `7a3ecc5` (origin/main) Improved DEVLOG.md, specially by adding screenshots
+* `51c3a5f` Small tweak in DEVLOG (commiting only to be able to do checkout)
+* `be8ed5a` Improved DEVLOG
+* `391d482` Moved markdown assets into new assets folder
+* `d232336` Created devlog
+* `389bf18` Improved README.md to fit the Stardance README standard
 * `8403d85` Added hero image to be used in README.md
 * `4b87821` Added favicons (bash logo)
 * `4fe3919` Added seeder for user to make creating admin account easier
