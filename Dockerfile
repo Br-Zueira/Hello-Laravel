@@ -6,6 +6,9 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install zip pcntl \
     && rm -rf /var/lib/apt/lists/*
 
+# Get Composer from official image
+COPY --from=composer:2.8 /usr/bin/composer /usr/bin/composer
+
 WORKDIR /var/www/html
 
 # Copy code into the container
