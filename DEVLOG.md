@@ -17,6 +17,7 @@ I didn't know about Stardance, didn't have a devlog and didn't have a GitHub rep
 * **The "Starting" Line:** I both joined Stardance and uploaded my files into GitHub.
 
 ### Thursday, June 11: 
+* **Fixed List Page:** Before this fix, the page would only show the last model in id. With that, it shows all models.
 * **Model Editing Page:**. The hardest part was to deal with the dropdowns. That's when TomSelect came in scene. Even then, I struggled with TomSelect at first.
 
 ### Friday, June 12: 
