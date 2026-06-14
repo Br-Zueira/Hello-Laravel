@@ -1,9 +1,5 @@
 @extends('layouts.layout')
 
-@push('head')
-    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
-@endpush
-
 @section('body')
     <div class='m-3'>
         </main>
@@ -14,42 +10,6 @@
                     <input type='hidden' name='model' value='{{ old("model", $model) }}'></input>
                     @switch($model)
                         @case('Excuse')
-                            <script>
-                                function newTom(id, label) {
-                                    const dropDown = document.getElementById(id);
-                                    const model = dropDown.getAttribute('data-model');
-                                    
-                                    return new TomSelect(`#${id}`, {
-                                        valueField: 'id',
-                                        labelField: label,
-                                        searchField: [label],
-                                        preload: true,
-                                        shouldLoad: () => true,
-
-                                        load: function(query, callback) {
-                                            // Track what page Tom Select needs to fetch next
-                                            let self = this;
-                                            let page = self.next_page || 1;
-                                            
-                                            // Build the URL pointing directly to your dynamic backend route
-                                            let url = `/genericlist/${model}/${page}?q=${encodeURIComponent(query)}`;
-
-                                            console.log(`Risk TomSelect is fetching content at: ${url}`);
-
-                                            fetch(url)
-                                            .then(response => response.json())
-                                            .then(json => {
-                                                if (json.current_page < json.last_page) {
-                                                    self.next_page = json.current_page + 1;
-                                                } else {
-                                                    self.next_page = null;
-                                                }
-                                                callback(json.data);
-                                            }).catch(() => callback());
-                                        }
-                                    });
-                                }
-                            </script>
                             <label>
                                 <p>Excuse:</p>
                                 <input type='text' name='text' value='{{ old("text", "") }}' class='border rounded p-1 my-1'>
@@ -59,13 +19,11 @@
                                 <input type='hidden' name='risk_tag' value='{{ old("risk_tag", "") }}'>
                                 <select data-model='risk' id='riskDropdown' name='risk_id'></select>
                             </label>
-                            <script>newTom('riskDropdown', 'tag')</script>
                             <label>
                                 <p>Category:</p>
                                 <input type='hidden' name='category_name' value='{{ old("category_name", "") }}'>
                                 <select data-model='category' id='categoryDropdown' name='category_id'></select>
                             </label>
-                            <script>newTom('categoryDropdown', 'name')</script>
                             <label>
                                 <p>Believability Rate:</p> 
                                 <input type='text' name='believability_rate' value='{{ old("believability_rate", "") }}' class='border rounded p-1 my-1'>
