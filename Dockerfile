@@ -18,4 +18,4 @@ CMD touch /var/www/html/database/database.sqlite && \
     php artisan config:cache && \
     php artisan route:cache && \
     php artisan view:cache && \
-    php artisan serve --host=0.0.0.0 --port=$PORT
+    php -d variables_order=EGPCS artisan serve --host=0.0.0.0 --port=$PORT 2>&1
