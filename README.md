@@ -43,7 +43,7 @@ Remember: be careful about what you post - other people will see it
 As it's just a personal, humorous-intended and learning-focused project, it doesn't have too much of a license like BSD or MIT, so do whatever you want to it: Redistribute, edit, sell (good luck finding someone willing to pay for it), be inspired, actually using the excuses (and worsening whatever situation you're in), printing this README and eating the paper (please don't)... The sky is the limit, just don't say it was made by you.
 
 ## How to Run Locally
-Requirements: PHP >= 8.2, Composer >= 2.0, Node.js >= 18.0, SQLite3
+Requirements: PHP >= 8.4, Composer >= 2.0, Node.js >= 18.0, SQLite3
 
 ### Steps
 1. Clone the repository: `git clone https://github.com/Br-Zueira/Hello-Laravel.git` and enter the repository folder
