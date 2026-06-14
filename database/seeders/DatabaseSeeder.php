@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
         $user->email = 'admin@example.com';
         $user->password = Hash::make('admin');
 
-        $user.save();
+        $user->save();
     }
 }
