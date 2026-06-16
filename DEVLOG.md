@@ -60,17 +60,33 @@ A really productive day.
 * **Documentation:** README and DEVLOG. I made README more detailed and added the landing page screenshot to it. 
 * **Commiting:** I pushed some commits from Saturday that were missing.
 * **Favicons:** I added the Bash logo favicons to the project.
-* **Deploying:** As I write this devlog section, I'm trying to deploy this project to create the demo
+* **Deploying:** As I write this devlog section, I'm trying to deploy this project to create the demo (and miserably failed).
 
 **README in Hello-Laravel GitHub page**
 ![Screenshot of the README at GitHub Hello-Laravel page](assets/7.png)
+
+### Tuesday, June 16:
+* **Officialization:** I'm officially creating the Hello-Laravel project at Stardance. Should have done this before. Just discovered I was devlogging the wrong way all this time.
+
+**Hello-Laravel Stardance**
+![Screenshot of Hello-Laravel](assets/8.png)
 
 ## GitHub History
 
 * -> The upload of this updated DEVLOG (Won't be logged here because to log it here, I'd have to update the DEVLOG, which would create a new commit, which I'd have to log here...)
 
-* `941b1ec` (HEAD -> main) Updated PHP requirement to 8.4
-* `7a3ecc5` (origin/main) Improved DEVLOG.md, specially by adding screenshots
+* `bf4a2a7` (HEAD -> main, origin/main) Remove automatic database creation at docker
+* `3b70ef5` Changed run command in Dockerfile
+* `33493f9` Completely stripped FrankenPHP out because it didn't work in Render
+* `3158734` Fixed typo in seeder (. to ->)
+* `5510537` Changed User Seeder so it works without factory
+* `939e88a` Corrected Dockerfile frankenPHP not having Composer binary
+* `065523a` Corrected Dockerfile frankenPHP version
+* `d91bde0` Added settings for deploying + included Octane at Composer requirements
+* `9e1facc` Corrected PHP version info in README
+* `a77e3ca` Updated DEVLOG
+* `941b1ec` Updated PHP requirement to 8.4
+* `7a3ecc5` Improved DEVLOG.md, specially by adding screenshots
 * `51c3a5f` Small tweak in DEVLOG (commiting only to be able to do checkout)
 * `be8ed5a` Improved DEVLOG
 * `391d482` Moved markdown assets into new assets folder
@@ -87,4 +103,7 @@ A really productive day.
 * `3fb766f` Added navbar, admin panel and mobile support
 * `276f3a6` Added terminal style and edit route
 * `cc5068c` Added admin category editing option
-* `2cc4618` (origin/master) Pushing the already existing files
+* `2cc4618` Pushing the already existing files
+
+### Note:
+Obtained this history by using `git log --oneline`. You can use `git log` to get a bigger and more detailed log history, including time.
