@@ -24,4 +24,5 @@ php artisan route:cache && \
 php artisan view:cache && \
 
 # Serving web page
-php -d variables_order=EGPCS artisan serve --host=0.0.0.0 --port=$PORT 2>&1
+export PORT=8000
+php -d variables_order=EGPCS artisan serve --host="::"--port=$PORT 2>&1
