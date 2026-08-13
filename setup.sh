@@ -3,9 +3,9 @@
 set -e
 
 # Dependencies
-apt update && \
-apt install -y php php-sqlite3 php-xml php-mbstring composer nodejs && \
-composer install --no-dev --optimize-autoloader && \
+sudo apt update && \
+sudo apt install -y php php-sqlite3 php-xml php-mbstring composer nodejs npm && \
+sudo composer install --no-dev --optimize-autoloader && \
 npm ci && npm run build && \
 
 # .env File
