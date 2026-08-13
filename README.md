@@ -40,23 +40,22 @@ Remember: be careful about what you post - other people will see it
 * **Laravel:** Chosen both because it's a batteries-included and simple to use framework and because I simply wanted to learn a new, industry-standard web framework.
 
 ## License
-As it's just a personal, humorous-intended and learning-focused project, it doesn't have too much of a license like BSD or MIT, so do whatever you want to it: Redistribute, edit, sell (good luck finding someone willing to pay for it), be inspired, actually using the excuses (and worsening whatever situation you're in), printing this README and eating the paper (please don't)... The sky is the limit, just don't say it was made by you.
+It's under MIT license, so do whatever you want to it: Redistribute, edit, sell (good luck finding someone willing to pay for it), be inspired, actually using the excuses (and worsening whatever situation you're in), printing this README and eating the paper (please don't)... The sky is the limit, just don't say it was made by you. Also, if you manage to actually make money with this website, tell me , and I'll include your name here for your impressing feat. See the full LICENSE file for legal details.
 
 ## How to Run Locally
 Requirements: PHP >= 8.4, Composer >= 2.0, Node.js >= 18.0, SQLite3
 
 ### Steps
 1. Clone the repository: `git clone https://github.com/Br-Zueira/Hello-Laravel.git` and enter the repository folder
-2. Install dependencies: `composer install` and `npm install`
-3. Copy `.env.example` to a file called `.env`
-4. Create an empty `database.sqlite` file in `/database`
-5. Create models in database using `php artisan migrate --seed` - This will give you the credentials:
+2. Run `setup-dev.sh` - It will automatically create the credentials:
     * Email: `admin@example.com` 
     * Password: `admin`
-6. Initiate Vite: `npm run dev`. 
+
+    Alternatively, you can use setup.sh for production setup. The difference is that it runs commands with some cache flags, ignore dev dependencies and already starts website.
+3. Initiate Vite: `npm run dev`. 
     * Alternatively, you can use `npm run build` to compile it beforehand, although for development and testing it's preferable to use the runtime resource server.
-7. Spin up the server: `php artisan serve`
-8. Open `http://127.0.0.1:8000` in your browser and start generating chaos.
+4. Spin up the server: `php artisan serve`
+5. Open `http://127.0.0.1:8000` in your browser and start generating chaos.
 
 ## Credits & Acknowledgments
 * **Lead Developer:** Myself.
