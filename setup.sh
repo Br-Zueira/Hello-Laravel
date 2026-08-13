@@ -9,7 +9,7 @@ COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader && \
 npm ci && npm run build && \
 
 # .env File
-([ ! -f .env ] && cp .env.example .env && php artisan key:generate || true) && \
+([ ! -f .env ] &&  cp .env.example .env && php artisan key:generate && sed -i "/s/APP_URL/APP_URL=http://0.0.0.0:8000/" .env || true) && \
 
 # Database
 mkdir -p database && \
@@ -24,5 +24,4 @@ php artisan route:cache && \
 php artisan view:cache && \
 
 # Serving web page
-export PORT=8000
-php -d variables_order=EGPCS artisan serve --host="::"--port=$PORT 2>&1
+php -d variables_order=EGPCS artisan serve --host=0.0.0.0 --port=8000 2>&1
