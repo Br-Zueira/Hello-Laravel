@@ -14,15 +14,17 @@ if [ -z "$URL" ]; then
 fi
 
 # Dependencies
+echo "Downloading dependencies" && \
 apt update && \
 apt install -y php php-sqlite3 php-xml php-mbstring composer nodejs npm && \
 COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader && \
 npm ci && npm run build && \
 
 # .env File
-([ ! -f .env ] &&  cp .env.example .env && php artisan key:generate && sed -i "|s|APP_URL=.*|APP_URL=$URL|g" .env || true) && \
+([ ! -f .env ] && echo ".env not found, creating new" && cp .env.example .env && php artisan key:generate && sed -i "|s|APP_URL=.*|APP_URL=$URL|g" .env || true) && \
 
 # Database
+echo "Creating fresh database, if none" && \
 mkdir -p database && \
 chmod 775 database && \
 touch database/database.sqlite && \
@@ -36,11 +38,15 @@ php artisan view:cache && \
 
 # Serving web page (initing it as a daemon)
 # Replacing some data
+echo "Replacing laravel.service data" && \
 sed -i "s|WorkingDirectory=.*|WorkingDirectory=$(pwd)|g" laravel.service
 sed -i "s|ExecStart=.*|ExecStart=/usr/bin/env php -d variables_order=EGPCS $(pwd)/artisan serve --host=$HOST --port=$PORT|g" laravel.service
 
 # Initing the actual daemon
-cp laravel.service /etc/systemd/system/laravel.service
-systemctl daemon-reload
-systemctl enable laravel
-systemctl restart laravel
+echo "Copying laravel.service to system folder" && \
+cp laravel.service /etc/systemd/system/laravel.service && \
+
+echo "Initing daemon" && \
+systemctl daemon-reload && \
+systemctl enable laravel && \
+systemctl restart laravel && \
