@@ -15,7 +15,7 @@ fi
 
 # Dependencies
 apt update && \
-apt install -y php php-sqlite3 php-xml php-mbstring composer nodejs npm && \
+apt install -y php php-sqlite3 php-xml php-mbstring composer nodejs npm systemctl && \
 COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader && \
 npm ci && npm run build && \
 
@@ -34,5 +34,13 @@ php artisan config:cache && \
 php artisan route:cache && \
 php artisan view:cache && \
 
-# Serving web page
-php -d variables_order=EGPCS artisan serve --host="$HOST" --port="$PORT" 2>&1
+# Serving web page (initing it as a daemon)
+# Replacing some data
+sed -i "s|WorkingDirectory=.*|WorkingDirectory=$(pwd)|g" laravel.service
+sed -i "s|ExecStart=.*|ExecStart=/usr/bin/env php -d variables_order=EGPCS $(pwd)/artisan serve --host=$HOST --port=$PORT|g" laravel.service
+
+# Initing the actual daemon
+cp laravel.service /etc/systemd/system/laravel.service
+systemctl daemon-reload
+systemctl enable laravel
+systemctl restart laravel
