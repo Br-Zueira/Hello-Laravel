@@ -16,7 +16,7 @@ fi
 # Dependencies
 echo "Downloading dependencies" && \
 apt update && \
-apt install -y php php-sqlite3 php-xml php-mbstring composer nodejs npm && \
+apt install -y php php-sqlite3 php-xml php-mbstring composer nodejs npm sqlite3 && \
 COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader && \
 npm ci && npm run build && \
 

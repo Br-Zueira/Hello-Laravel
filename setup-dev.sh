@@ -4,7 +4,7 @@ set -e
 
 # Dependencies
 sudo apt update && \
-sudo apt install -y php php-sqlite3 php-xml php-mbstring composer nodejs && \
+sudo apt install -y php php-sqlite3 php-xml php-mbstring composer nodejs sqlite3 && \
 composer install && \
 npm install && \
 
