@@ -15,7 +15,7 @@ fi
 
 # Dependencies
 apt update && \
-apt install -y php php-sqlite3 php-xml php-mbstring composer nodejs npm systemctl && \
+apt install -y php php-sqlite3 php-xml php-mbstring composer nodejs npm && \
 COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader && \
 npm ci && npm run build && \
 
