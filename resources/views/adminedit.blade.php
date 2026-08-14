@@ -38,12 +38,12 @@
                                 <input type='text' name='believability_rate' value='{{ old("believability_rate", $object->believability_rate) }}' class='border rounded p-1 my-1'>
                             </label>
                             <input type='hidden' name='chaosScore' value='{{ old("chaosScore", $object->chaosScore) }}'>
-                            <p>Chaos Score: {{ old('chaosScore', $object->chaosScore) }} - System-defined property as: Risk Score + (100 - Believ. Rate)</p>
+                            <p>Chaos Score: {{ old("chaosScore", $object->chaosScore) }} - System-defined property as: Risk Score + (100 - Believ. Rate)</p>
                             @break
                         @case('Risk')
                             <label>
                                 <p>Risk tag:</p>
-                                <input type='text' name='tag' value='{{ old("tag". $object->tag) }}' class='border rounded p-1 my-1'>
+                                <input type='text' name='tag' value='{{ old("tag", $object->tag) }}' class='border rounded p-1 my-1'>
                             </label>
                             <label>
                                 <p>Severity Score:</p> 
