@@ -11,8 +11,9 @@ A humorous-intended website about giving excuses to diverse situations, such as 
 Credentials:
 * Email: `admin@example.com` 
 * Password: `admin`
+
 Login in the website and have fun while skipping the boring setup part.
-`Note:` It's mobile compatible, although made with desktop in mind.
+**Note:** It's mobile compatible, although made with desktop in mind.
 
 ### Posting rules
 1. No NSFW
@@ -48,27 +49,31 @@ Requirements: PHP >= 8, Composer >= 2, Node.js >= 18, NPM >= 11, SQLite3 (setup 
 ### Steps
 1. Clone the repository and enter the directory: 
 ```bash 
-git clone [https://github.com/Br-Zueira/Hello-Laravel.git](https://github.com/Br-Zueira/Hello-Laravel.git)
+git clone https://github.com/Br-Zueira/Hello-Laravel.git
 cd Hello-Laravel
 ```
+
 2. Run the setup script: 
 ```bash
 ./setup-dev.sh
-``` 
-    - It will automatically create the credentials:
+```
+- It will automatically create the credentials:
     * Email: `admin@example.com` 
     * Password: `admin`
 
     Alternatively, you can use `./setup.sh` for production setup. The difference is that it runs commands without sudo (assumes session is logged as root, which is case for Nest, the platform I used to host the preview website), uses cache flags to speed up website, ignore dev dependencies and starts website as daemon, so `./setup.sh` lets you ignore the rest of the steps.
+
 3. Initiate Vite: 
 ```bash
 npm run dev
 ``` 
-    * Alternatively, you can use `npm run build` to compile it beforehand, although for development and testing it's preferable to use the runtime resource server.
+* Alternatively, you can use `npm run build` to compile it beforehand, although for development and testing it's preferable to use the runtime resource server.
+
 4. Spin up the server: 
 ```bash
 php artisan serve
 ```
+
 5. Open `http://127.0.0.1:8000` in your browser and start generating chaos.
 
 ## Credits & Acknowledgments
